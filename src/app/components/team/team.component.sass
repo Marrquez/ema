@@ -1,0 +1,108 @@
+:host
+  .team
+    padding: 15px
+
+    h1
+      font-size: 20px
+      text-align: center
+
+    &__content
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+
+      &-thumbnail
+        width: 150px
+        text-align: center
+        margin: 10px
+
+        img
+          width: 140px
+          border-radius: 4px
+
+
+      &-box
+        align-self: center
+
+        &-formacion
+          img
+            border-left: 3px solid #FF2953
+
+        &-calidad
+          img
+            border-left: 3px solid #01A8E0
+
+        section
+          display: flex
+          flex-wrap: wrap
+          justify-content: center
+          margin: 30px 0
+
+          &:nth-child(1)
+            position: relative
+            &:before
+              content: "Formación"
+              position: absolute
+              width: 10px
+              right: auto
+              left: 20px
+              text-align: center
+              word-break: break-word
+              top: 40px
+              font-size: 13px
+
+          &:nth-child(2)
+            position: relative
+            &:before
+              content: "Calidad"
+              position: absolute
+              width: 5px
+              right: auto
+              left: 20px
+              text-align: center
+              word-break: break-word
+              top: 10px
+              font-size: 13px
+
+        &:nth-child(1)
+          width: 240px
+
+          .team__content-thumbnail
+            margin: auto
+
+        &:nth-child(2)
+          width: 100%
+
+  // Small devices (landscape phones, 576px and up)
+  @media (min-width: 576px)
+    .team
+      h1
+        font-size: 24px
+        text-align: left
+      &__content
+        flex-wrap: nowrap
+
+        &-box
+          section
+            justify-content: flex-start
+
+            &:nth-child(1)
+              &:before
+                left: -15px
+
+            &:nth-child(2)
+              &:before
+                left: -10px
+
+          &:nth-child(1)
+            .team__content-thumbnail
+              margin: 20px 40px
+
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: 768px)
+
+  // Large devices (desktops, 992px and up)
+  @media (min-width: 992px)
+
+  // Extra large devices (large desktops, 1200px and up)
+  @media (min-width: 1200px)
