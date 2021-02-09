@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+
+// Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { BaseComponent } from './components/base/base.component';
@@ -13,6 +15,10 @@ import { TopnavbarComponent } from './common/topnavbar/topnavbar.component';
 import { TeamComponent } from './components/team/team.component';
 import { NotesComponent } from './components/notes/notes.component';
 import { MutualInterestComponent } from './components/mutual-interest/mutual-interest.component';
+
+// Services
+import {AuthService} from './services/auth.service';
+import {AppGuardService} from './guards/app-guard.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +38,10 @@ import { MutualInterestComponent } from './components/mutual-interest/mutual-int
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AppGuardService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

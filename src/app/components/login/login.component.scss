@@ -1,0 +1,13 @@
+:host {
+  .login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    &__content {
+      max-width: 300px;
+    }
+  }
+}
+
+
