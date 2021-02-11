@@ -34,4 +34,8 @@ export class AuthService {
   public getUsers() {
     return this.db.list('usuarios');
   }
+
+  public getUser(id: string) {
+    return this.db.object('usuarios/' + id);
+  }
 }

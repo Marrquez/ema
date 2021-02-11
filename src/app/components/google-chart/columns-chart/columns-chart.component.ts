@@ -42,7 +42,7 @@ export class ColumnsChartComponent implements OnInit {
         maxValue: 100,
         format: '#\'%\''
       },
-      width: 320,
+      width: 290,
       height: 300,
       bar: {groupWidth: "95%"},
       legend: { position: "none" },

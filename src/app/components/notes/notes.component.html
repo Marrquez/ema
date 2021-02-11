@@ -11,7 +11,7 @@
     <section class="notes__content-table">
       <h1>Mis últimas evaluaciones tienen estas observaciones</h1>
       <table>
-        <thead>
+        <thead class="desktop">
           <tr>
             <th>Nota Evaluación</th>
             <th>Observaciones</th>
@@ -21,10 +21,26 @@
         </thead>
         <tbody>
           <tr *ngFor="let d of userData | slice:0:2;">
-            <td class="note">{{d['NOTA EVALUACION']}}</td>
-            <td>{{d['Observaciones']}}</td>
-            <td>{{d['Observaciones - Aspectos Positivos']}}</td>
-            <td>{{d['Observaciones - Oportunidades de Mejora']}}</td>
+            <td class="note">
+              <div class="desktop">{{d['NOTA EVALUACION']}}</div>
+              <div class="mobile">
+                <section>
+                  <label><strong>Nota Evaluación: </strong></label> {{d['NOTA EVALUACION']}}
+                </section>
+                <section>
+                  <label><strong>Observaciones: </strong></label> {{d['Observaciones']}}
+                </section>
+                <section>
+                  <label><strong>Aspectos positivos: </strong></label> {{d['Observaciones - Aspectos Positivos']}}
+                </section>
+                <section>
+                  <label><strong>Oportunidades de mejora: </strong></label> {{d['Observaciones - Oportunidades de Mejora']}}
+                </section>
+              </div>
+            </td>
+            <td class="desktop">{{d['Observaciones']}}</td>
+            <td class="desktop">{{d['Observaciones - Aspectos Positivos']}}</td>
+            <td class="desktop">{{d['Observaciones - Oportunidades de Mejora']}}</td>
           </tr>
         </tbody>
       </table>

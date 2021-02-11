@@ -13,11 +13,19 @@
       &-table
         margin: 30px
         flex: 1 100%
+        tr
+          border-bottom: 1px solid #ddd
+        .desktop
+          display: none
+        section
+          text-align: left
+          strong
+            color: #051E34
 
       section
         margin: 15px
         app-bars-chart, app-columns-chart
-          width: 320px
+          width: 290px
           display: block
           margin: auto
         h1
@@ -44,4 +52,15 @@
               &.note
                 text-align: center
 
-
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: 768px)
+    .notes
+      &__content
+        &-table
+          thead.desktop
+            display: table-header-group
+          tr
+          .desktop
+            display: table-cell
+          .mobile
+            display: none

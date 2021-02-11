@@ -104,7 +104,8 @@ export class NotesComponent implements OnInit {
       /* Get worksheet */
       var worksheet = workbook.Sheets[first_sheet_name];
       _self.data = XLSX.utils.sheet_to_json(worksheet,{raw:false});
-      _self.getUsers();
+      // _self.getUsers();
+      _self.getUser();
     }
     oReq.send();
   }
@@ -124,11 +125,33 @@ export class NotesComponent implements OnInit {
     });
   }
 
+  getUser() {
+    this.as.getUser(this.user.uid).snapshotChanges().subscribe(usr => { // Using snapshotChanges() method to retrieve list of data along with metadata($key)
+      const dni = usr.payload.toJSON();
+
+      this.drawCharts(dni as number);
+    });
+  }
+
+  drawCharts(dni: number) {
+    this.userData = this.data.filter((ele) => {
+      return ele.IncreYble === dni.toString();
+    });
+
+    this.userData.sort((a, b)=> {
+      return new Date(b['Fecha de monitoreo']).getTime() - new Date(a['Fecha de monitoreo']).getTime();
+    });
+
+    this.drawChart1();
+
+    this.drawChart2();
+  }
+
   getUserData() {
-    const usr = this.getUser(this.user.uid);
+    /*const usr = this.getUser(this.user.uid);
     this.userData = this.data.filter((ele) => {
       return ele.IncreYble === usr.dni.toString();
-    });
+    });*/
 
     this.userData.sort((a, b)=> {
       return new Date(b['Fecha de monitoreo']).getTime() - new Date(a['Fecha de monitoreo']).getTime();
@@ -201,42 +224,42 @@ export class NotesComponent implements OnInit {
     let c1 = 0;
     let c2 = 0;
     let c3 = 0;
-    
+
     for(let i = 0; i < this.userData.length; i++) {
       const id = ((this.userData[i]['Fecha de monitoreo']).split('/'))[0];
 
       if(this.chart2Month1.id && this.chart2Month1.id === id) {
         c1++;
         if(this.userData[i]['COLMEDICA CEO - ¿Resolvimos la solicitud del Cliente?'] === 'Si'){
-          this.chart2Month1.data.push(0);
+          this.chart2Month1.data.push(this.userData[i]);
         }
       } else if(this.chart2Month2.id && this.chart2Month2.id === id){
         c2++;
         if(this.userData[i]['COLMEDICA CEO - ¿Resolvimos la solicitud del Cliente?'] === 'Si'){
-          this.chart2Month2.data.push(0);
+          this.chart2Month2.data.push(this.userData[i]);
         }
       }  else if(this.chart2Month3.id && this.chart2Month3.id === id) {
         c3++;
         if(this.userData[i]['COLMEDICA CEO - ¿Resolvimos la solicitud del Cliente?'] === 'Si'){
-          this.chart2Month3.data.push(0);
+          this.chart2Month3.data.push(this.userData[i]);
         }
       } else if(!this.chart2Month1.id) {
         c1++;
         this.chart2Month1.id = id;
         if(this.userData[i]['COLMEDICA CEO - ¿Resolvimos la solicitud del Cliente?'] === 'Si'){
-          this.chart2Month1.data.push(0);
+          this.chart2Month1.data.push(this.userData[i]);
         }
       } else if(!this.chart2Month2.id) {
         c2++;
         this.chart2Month2.id = id;
         if(this.userData[i]['COLMEDICA CEO - ¿Resolvimos la solicitud del Cliente?'] === 'Si'){
-          this.chart2Month2.data.push(0);
+          this.chart2Month2.data.push(this.userData[i]);
         }
       } else if(!this.chart2Month3.id) {
         c3++;
         this.chart2Month3.id = id;
         if(this.userData[i]['COLMEDICA CEO - ¿Resolvimos la solicitud del Cliente?'] === 'Si'){
-          this.chart2Month3.data.push(0);
+          this.chart2Month3.data.push(this.userData[i]);
         }
       }
     }
@@ -271,11 +294,11 @@ export class NotesComponent implements OnInit {
     this.notifyColumns.next(this.chart2Data);
   }
 
-  getUser(uid: string) {
+  /*getUser(uid: string) {
     return this.users.find((ele) => {
       return ele.uid === uid;
     });
-  }
+  }*/
 
   /*onFileChange(event: any) {
     const target: DataTransfer = <DataTransfer>(event.target);
