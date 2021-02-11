@@ -201,7 +201,7 @@ export class NotesComponent implements OnInit {
     let c1 = 0;
     let c2 = 0;
     let c3 = 0;
-    console.log(this.userData);
+    
     for(let i = 0; i < this.userData.length; i++) {
       const id = ((this.userData[i]['Fecha de monitoreo']).split('/'))[0];
 
@@ -241,49 +241,31 @@ export class NotesComponent implements OnInit {
       }
     }
 
+    const month1Data = this.months.find((item) => {
+      return item.key === this.chart2Month1.id;
+    });
+
+    this.chart2Data[1][0] = month1Data!.value;
     if (this.chart2Month1.data.length > 0) {
-      const monthData = this.months.find((item) => {
-        return item.key === this.chart2Month1.id;
-      });
-
-      this.chart2Data[1][0] = monthData!.value;
       this.chart2Data[1][1] = c1 > 0 ? (this.chart2Month1.data.length / c1) * 100 : 0;
-    } else {
-      const monthData = this.months.find((item) => {
-        return item.key === this.chart2Month1.id;
-      });
-
-      this.chart2Data[1][0] = monthData!.value;
     }
 
+    const month3Data = this.months.find((item) => {
+      return item.key === this.chart2Month3.id;
+    });
+
+    this.chart2Data[3][0] = month3Data!.value;
     if (this.chart2Month3.data.length > 0) {
-      const monthData = this.months.find((item) => {
-        return item.key === this.chart2Month3.id;
-      });
-
-      this.chart2Data[3][0] = monthData!.value;
       this.chart2Data[3][1] = c3 > 0 ? (this.chart2Month3.data.length / c3) * 100 : 0;
-    } else {
-      const monthData = this.months.find((item) => {
-        return item.key === this.chart2Month3.id;
-      });
-
-      this.chart2Data[3][0] = monthData!.value;
     }
 
+    const month2Data = this.months.find((item) => {
+      return item.key === this.chart2Month2.id;
+    });
+
+    this.chart2Data[2][0] = month2Data!.value;
     if (this.chart2Month2.data.length > 0) {
-      const monthData = this.months.find((item) => {
-        return item.key === this.chart2Month2.id;
-      });
-
-      this.chart2Data[2][0] = monthData!.value;
       this.chart2Data[2][1] = c2 > 0 ? (this.chart2Month2.data.length / c2) * 100 : 0;
-    } else {
-      const monthData = this.months.find((item) => {
-        return item.key === this.chart2Month2.id;
-      });
-
-      this.chart2Data[2][0] = monthData!.value;
     }
 
     this.notifyColumns.next(this.chart2Data);
