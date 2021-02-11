@@ -19,7 +19,7 @@ export class AppGuardService implements CanActivate, CanLoad {
       sessionStorage.getItem('currentUser') !== 'undefined'
         ? JSON.parse(sessionStorage.getItem('currentUser') || '{}')
         : {};
-    if (currentUser && currentUser.token) {
+    if (currentUser && currentUser.stsTokenManager && currentUser.stsTokenManager.accessToken) {
       // logged in so return true
       return true;
     }

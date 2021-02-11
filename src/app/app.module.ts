@@ -1,7 +1,17 @@
-import { NgModule } from '@angular/core';
+import { NgModule, InjectionToken } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { GoogleChartModule } from './components/google-chart/google-chart.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { StoreModule } from '@ngrx/store';
+export const REDUCER_TOKEN = new InjectionToken('Registered Reducers');
+import { appReducers } from './store/app.reducers';
+import { HttpClientModule } from '@angular/common/http';
 
 // Components
 import { AppComponent } from './app.component';
@@ -36,11 +46,23 @@ import {AppGuardService} from './guards/app-guard.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    StoreModule.forRoot(REDUCER_TOKEN),
+    HttpClientModule,
+    GoogleChartModule,
   ],
   providers: [
     AuthService,
     AppGuardService,
+    {
+      provide: REDUCER_TOKEN,
+      useValue: appReducers,
+    },
   ],
   bootstrap: [AppComponent]
 })

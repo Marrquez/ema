@@ -8,6 +8,7 @@ import {LoginComponent} from "./components/login/login.component";
 import { TeamComponent } from './components/team/team.component';
 import { NotesComponent } from './components/notes/notes.component';
 import { MutualInterestComponent } from './components/mutual-interest/mutual-interest.component';
+import { AppGuardService } from './guards/app-guard.service';
 
 const routes: Routes = [
   // Main redirect
@@ -16,6 +17,7 @@ const routes: Routes = [
   // App views
   {
     path: '', component: BasicLayoutComponent,
+    canActivate: [AppGuardService],
     children: [
       {path: 'home', component: HomeComponent},
       {path: 'base', component: BaseComponent},

@@ -5,16 +5,30 @@
         <h1 class="logo-name">EMA</h1>
       </div>
       <h3>Bienvenidos a EMA</h3>
-      <small>Diseñado para apoyarte en tu proceso de formación.</small>
-      <p><small>Inicia sesión para ver más.</small></p>
-      <form class="m-t" role="form" action="#">
+      <p><small>Entiendo, Mejoro, Actúa</small></p>
+      <small>Diseñado para apoyarte en tu gestión.</small>
+      <form class="m-t" role="form" [formGroup]="loginForm">
         <div class="form-group">
-          <input type="email" class="form-control" placeholder="Correo" required="">
+          <input type="email"
+                 class="form-control"
+                 placeholder="Correo"
+                 required="true"
+                 id="email"
+                 labelForId="email"
+                 formControlName="email"
+          >
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" placeholder="Contraseña" required="">
+          <input type="password"
+                 class="form-control"
+                 placeholder="Contraseña"
+                 required="true"
+                 id="password"
+                 labelForId="password"
+                 formControlName="password"
+          >
         </div>
-        <button type="submit" class="btn btn-info block full-width m-b">Entrar</button>
+        <button (click)="login()" class="btn btn-info block full-width m-b">Entrar</button>
 
         <!--<a href="#"><small>Forgot password?</small></a>
         <p class="text-muted text-center"><small>Do not have an account?</small></p>
