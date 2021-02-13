@@ -1,1 +1,43 @@
-<p>mutual-interest works!</p>
+ <div class="mutual-interest">
+   <section class="mutual-interest__section">
+     <small>
+       {{data.date}}
+     </small>
+     <small>
+       {{data.edition}}
+     </small>
+   </section>
+   <section class="mutual-interest__section">
+     <div class="mutual-interest__section-post">
+       <h4>{{data.posts[0].title}}</h4>
+       <p><small>{{data.posts[0].description}}</small></p>
+     </div>
+     <div class="mutual-interest__section-post">
+       <img alt="post-1" src="{{data.posts[1].img}}"/>
+       <p><small>{{data.posts[1].description}}</small></p>
+     </div>
+     <div class="mutual-interest__section-post">
+       <img alt="post-2" src="{{data.posts[2].img}}"/>
+       <p><small>{{data.posts[2].description}}</small></p>
+     </div>
+     <div class="mutual-interest__section-post">
+       <h4>{{data.posts[3].title}}</h4>
+       <p><small>{{data.posts[3].description}}</small></p>
+     </div>
+   </section>
+   <section class="mutual-interest__section">
+     <h1>{{data.boletin.title}}</h1>
+     <br />
+     <iframe [src]="getSafeURL(data.boletin.urlVideo)" height="auto" frameborder="0" allowfullscreen></iframe>
+   </section>
+   <section class="mutual-interest__section">
+     <div class="mutual-interest__section-banner">
+       <h1>{{data.footer.banner.title}}</h1>
+       <p>{{data.footer.banner.content}}</p>
+     </div>
+     <div class="mutual-interest__section-info">
+       <h5>{{data.footer.alert.title}}</h5>
+       <p>{{data.footer.alert.description}}</p>
+     </div>
+   </section>
+ </div>

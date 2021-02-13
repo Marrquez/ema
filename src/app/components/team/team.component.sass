@@ -11,26 +11,90 @@
       flex-wrap: wrap
       justify-content: center
 
-      &-thumbnail
-        width: 150px
-        text-align: center
-        margin: 10px
-
-        img
-          width: 130px
-          border-radius: 50%
-
-
       &-box
         align-self: center
 
-        &-formacion
-          img
-            border-left: 3px solid #FF2953
-
         &-calidad
+          .card
+            background: #93BDA7
+            img
+              border: 3px solid #80A492
+
+            &__left-info
+              label
+                background: #80A492
+
+        &-formacion
+          .card
+            background: #EA746A
+            img
+             border: 3px solid #C56159
+            &__left-info
+              label
+                background: #C56159
+
+        .card
+          border-radius: 3px
+          width: 150px
+          text-align: center
+          margin: 10px
+          padding: 10px
+          box-shadow: 0 8px 16px -8px rgb(0 0 0 / 40%)
+          width: 100%
+          border: none
+          color: #fff
+
           img
-            border-left: 3px solid #01A8E0
+            width: 100px
+            height: 100px
+            border-radius: 50%
+
+          &__left-info
+            position: relative
+            height: 150px
+
+            label
+              position: absolute
+              left: 0
+              right: 0
+              margin: auto
+              text-align: center
+              border-radius: 30px
+              max-width: 80px
+              font-size: 10px
+              padding: 3px
+
+              &.age
+                top: 0
+                bottom: auto
+
+              &.points
+                top: auto
+                bottom: 0
+                max-width: 80px
+                text-transform: uppercase
+                font-size: 10px
+
+            img
+              position: absolute
+              margin: auto
+              top: 0
+              bottom: 0
+              left: 0
+              right: 0
+
+          &__right-info
+            font-weight: 100
+            padding: 10px
+
+            h1
+              font-size: 26px
+            p
+              font-size: 12px
+            small
+              font-style: italic
+              font-weight: 100
+
 
         section
           display: flex
@@ -38,37 +102,30 @@
           justify-content: center
           margin: 30px 0
 
-          &:nth-child(1)
-            position: relative
-            &:before
-              content: "Formación"
-              position: absolute
-              width: 10px
-              right: auto
-              left: 20px
-              text-align: center
-              word-break: break-word
-              top: 40px
-              font-size: 13px
-
-          &:nth-child(2)
-            position: relative
-            &:before
-              content: "Calidad"
-              position: absolute
-              width: 5px
-              right: auto
-              left: 20px
-              text-align: center
-              word-break: break-word
-              top: 10px
-              font-size: 13px
-
         &:nth-child(1)
           width: 240px
 
           .team__content-thumbnail
             margin: auto
+            p, small
+              text-align: center
+              width: 100%
+              margin: 10px 0
+              font-weight: 100
+              padding: 10px
+
+            label
+              width: 100%
+              text-align: center
+              font-size: 36px
+            img
+              width: 150px
+              height: 150px
+              border-radius: 50%
+              border: 3px solid #0178CF
+              margin-left: auto
+              margin-right: auto
+              display: block
 
         &:nth-child(2)
           width: 100%
@@ -78,25 +135,55 @@
     .team
       h1
         font-size: 24px
-        text-align: left
       &__content
         flex-wrap: nowrap
 
         &-box
+          &-calidad
+            .card
+              &__left-info
+                background: #93BDA7
+                label
+                  background: #80A492
+
+          &-formacion
+            .card
+              &__left-info
+                background: #EA746A
+                label
+                  background: #C56159
+
+          .card
+            background: #fff
+            width: 350px
+            padding: 0
+            flex-direction: row
+
+            &__right-info
+              color: #051E34
+              h1
+                font-size: 32px
+                text-align: center
+              small
+                color: #86868b
+
+            &__left-info
+              width: 230px
+              padding: 10px
+              height: 100%
+              min-height: 180px
+
+              label
+
+                &.age
+                  top: 10px
+
+                &.points
+                  bottom: 10px
+
           section
             justify-content: flex-start
 
-            &:nth-child(1)
-              &:before
-                left: -15px
-
-            &:nth-child(2)
-              &:before
-                left: -10px
-
-          &:nth-child(1)
-            .team__content-thumbnail
-              margin: 20px 40px
 
   // Medium devices (tablets, 768px and up)
   @media (min-width: 768px)
