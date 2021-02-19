@@ -28,7 +28,7 @@
                  formControlName="password"
           >
         </div>
-        <button (click)="login()" class="btn btn-info block full-width m-b">Entrar</button>
+        <button (click)="login()" class="btn btn-info block full-width m-b"><div *ngIf="logginIn" class="loader">Loading...</div>Entrar</button>
 
         <!--<a href="#"><small>Forgot password?</small></a>
         <p class="text-muted text-center"><small>Do not have an account?</small></p>

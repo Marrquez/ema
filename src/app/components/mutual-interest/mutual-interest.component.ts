@@ -55,7 +55,7 @@ export class MutualInterestComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.as.getUser('A4FHgvrZwOdCLdevUbO15MsPCMs2').snapshotChanges().subscribe((data: any) => {
+    this.as.getPagesData('A4FHgvrZwOdCLdevUbO15MsPCMs2').snapshotChanges().subscribe((data: any) => {
       const pageData = data.payload.toJSON();
 
       this.data.date = pageData.date ? pageData.date : new Date().toLocaleDateString();

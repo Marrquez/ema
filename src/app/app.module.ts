@@ -12,6 +12,7 @@ import { StoreModule } from '@ngrx/store';
 export const REDUCER_TOKEN = new InjectionToken('Registered Reducers');
 import { appReducers } from './store/app.reducers';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxContentLoadingModule } from 'ngx-content-loading';
 
 // Components
 import { AppComponent } from './app.component';
@@ -55,6 +56,7 @@ import {AppGuardService} from './guards/app-guard.service';
     StoreModule.forRoot(REDUCER_TOKEN),
     HttpClientModule,
     GoogleChartModule,
+    NgxContentLoadingModule,
   ],
   providers: [
     AuthService,

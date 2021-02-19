@@ -36,6 +36,10 @@ export class AuthService {
   }
 
   public getUser(id: string) {
+    return this.db.object('usuarios/cedulas/' + id);
+  }
+
+  public getPagesData(id: string) {
     return this.db.object('usuarios/' + id);
   }
 }

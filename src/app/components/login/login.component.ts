@@ -11,6 +11,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   errorMessage = '';
+  logginIn = false;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -37,9 +38,12 @@ export class LoginComponent implements OnInit {
 
 
   login() {
+    this.logginIn = true;
     this.afAuth.signInWithEmailAndPassword(this.loginForm.value.email, this.loginForm.value.password).then(() => {
+      this.logginIn = false;
       this.router.navigate(['/home']);
     }).catch((response: any) => {
+      this.logginIn = false;
       this.errorMessage = response.message;
     });
   }

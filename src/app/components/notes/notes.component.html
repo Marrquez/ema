@@ -2,10 +2,20 @@
   <div class="notes__content">
     <section class="notes__content-chart1">
       <h1>Mi nota a hoy es</h1>
+      <ngx-content-loading *ngIf="loadingData">
+        <svg:g ngx-rect width="250" height="40" y="0" x="50" rx="5" ry="5"></svg:g>
+        <svg:g ngx-rect width="210" height="40" y="45" x="50" rx="5" ry="5"></svg:g>
+        <svg:g ngx-rect width="240" height="40" y="90" x="50" rx="5" ry="5"></svg:g>
+      </ngx-content-loading>
       <app-bars-chart [notify]="notifyBars"></app-bars-chart>
     </section>
     <section class="notes__content-chart2">
       <h1>Mi solución</h1>
+      <ngx-content-loading *ngIf="loadingData">
+        <svg:g ngx-rect width="250" height="40" y="0" x="50" rx="5" ry="5"></svg:g>
+        <svg:g ngx-rect width="210" height="40" y="45" x="50" rx="5" ry="5"></svg:g>
+        <svg:g ngx-rect width="240" height="40" y="90" x="50" rx="5" ry="5"></svg:g>
+      </ngx-content-loading>
       <app-columns-chart [notify]="notifyColumns"></app-columns-chart>
     </section>
     <section class="notes__content-table">
@@ -19,7 +29,31 @@
             <th>Oportunidades de mejora</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngIf="loadingData">
+          <tr>
+            <td class="note">
+              <ngx-content-loading *ngIf="loadingData">
+                <svg:g ngx-rect width="250" height="40" y="0" x="50" rx="5" ry="5"></svg:g>
+              </ngx-content-loading>
+            </td>
+            <td class="desktop">
+              <ngx-content-loading *ngIf="loadingData">
+                <svg:g ngx-rect width="250" height="40" y="0" x="50" rx="5" ry="5"></svg:g>
+              </ngx-content-loading>
+            </td>
+            <td class="desktop">
+              <ngx-content-loading *ngIf="loadingData">
+                <svg:g ngx-rect width="250" height="40" y="0" x="50" rx="5" ry="5"></svg:g>
+              </ngx-content-loading>
+            </td>
+            <td class="desktop">
+              <ngx-content-loading *ngIf="loadingData">
+                <svg:g ngx-rect width="250" height="40" y="0" x="50" rx="5" ry="5"></svg:g>
+              </ngx-content-loading>
+            </td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="!loadingData">
           <tr *ngFor="let d of userData | slice:0:2;">
             <td class="note">
               <div class="desktop">{{d['NOTA EVALUACION']}}</div>

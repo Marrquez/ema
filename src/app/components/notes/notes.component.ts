@@ -12,6 +12,7 @@ import { Observable, Subject } from 'rxjs';
   styleUrls: ['./notes.component.sass']
 })
 export class NotesComponent implements OnInit {
+  loadingData = true;
   notifyBars: Subject<any> = new Subject();
   notifyColumns: Subject<any> = new Subject();
   user: User = new User({
@@ -119,8 +120,7 @@ export class NotesComponent implements OnInit {
           dni: dni,
         };
         this.users.push(user as any);
-      })
-
+      });
       this.getUserData();
     });
   }
@@ -145,6 +145,10 @@ export class NotesComponent implements OnInit {
     this.drawChart1();
 
     this.drawChart2();
+
+    setTimeout(() => {
+      this.loadingData = false;
+    }, 500);
   }
 
   getUserData() {
