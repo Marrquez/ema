@@ -41,6 +41,7 @@ export class MutualInterestComponent implements OnInit {
       banner: {
         title: '',
         content: '',
+        autor: '',
       },
       alert: {
         title: '',
@@ -72,6 +73,7 @@ export class MutualInterestComponent implements OnInit {
       this.data.boletin.urlVideo = pageData.boletin.urlVideo;
       this.data.footer.banner.title = pageData.footer.banner.title;
       this.data.footer.banner.content = pageData.footer.banner.description;
+      this.data.footer.banner.autor = pageData.footer.banner.autor;
       this.data.footer.alert.title = pageData.footer.alert.title;
       this.data.footer.alert.description = pageData.footer.alert.description;
     });

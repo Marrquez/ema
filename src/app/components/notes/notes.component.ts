@@ -148,7 +148,7 @@ export class NotesComponent implements OnInit {
 
     setTimeout(() => {
       this.loadingData = false;
-    }, 500);
+    }, 350);
   }
 
   getUserData() {

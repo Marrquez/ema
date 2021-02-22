@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ema-web-bbe81": {
+      "hosting": {
+        "ema": [
+          "ema-web-bbe81"
+        ]
+      }
+    }
+  }
+}
