@@ -35,7 +35,7 @@ export class MutualInterestComponent implements OnInit {
     ],
     boletin: {
       title: 'BOLETÍN',
-      urlVideo: 'https://www.youtube.com/watch?v=hY1pXSbs7hg',
+      urlVideo: this.getSafeURL('https://www.youtube.com/watch?v=hY1pXSbs7hg'),
     },
     footer: {
       banner: {
@@ -70,7 +70,7 @@ export class MutualInterestComponent implements OnInit {
       this.data.posts[3].title = pageData.posts.post4.title;
       this.data.posts[3].description = pageData.posts.post4.description;
       this.data.boletin.title = pageData.boletin.title;
-      this.data.boletin.urlVideo = pageData.boletin.urlVideo;
+      this.data.boletin.urlVideo = this.getSafeURL(pageData.boletin.urlVideo);
       this.data.footer.banner.title = pageData.footer.banner.title;
       this.data.footer.banner.content = pageData.footer.banner.description;
       this.data.footer.banner.autor = pageData.footer.banner.autor;

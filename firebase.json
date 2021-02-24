@@ -8,6 +8,13 @@
       ],
       "headers": [
         {
+          "source": "**/*.@(xlsx)",
+          "headers": [ {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          } ]
+        },
+        {
           "source": "*.[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f].+(css|js)",
           "headers": [
             {
