@@ -16,6 +16,7 @@ export const initAuthState: IAuthState = {
     lastLoginAt: '',
     photoURL: '',
     stsTokenManager: {},
+    id: 0,
   }),
 };
 

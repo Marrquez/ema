@@ -8,6 +8,7 @@ export class User {
   displayName: string;
   photoURL: string;
   emailVerified: boolean;
+  id: number;
 
   constructor(dataUser: IDataUser) {
     this.uid = dataUser.uid;
@@ -19,6 +20,7 @@ export class User {
     this.lastLoginAt = dataUser.lastLoginAt;
     this.photoURL = dataUser.photoURL;
     this.stsTokenManager = dataUser.stsTokenManager;
+    this.id = dataUser.id;
   }
 }
 
@@ -32,5 +34,6 @@ interface IDataUser {
   lastLoginAt: string;
   photoURL: string;
   stsTokenManager: any;
+  id: number;
 }
 

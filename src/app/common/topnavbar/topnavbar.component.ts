@@ -23,6 +23,7 @@ export class TopnavbarComponent implements OnInit {
     lastLoginAt: '',
     photoURL: '',
     stsTokenManager: {},
+    id: 0,
   });
   constructor(
     private router: Router,
@@ -39,8 +40,16 @@ export class TopnavbarComponent implements OnInit {
     });
 
     this.as.getSession().subscribe((usrObj: User) => {
-      const newUser = new User(usrObj);
-      this.store.dispatch(new SetAuth(newUser));
+      let newUser = new User(usrObj);
+      this.as.getUser(newUser.uid).snapshotChanges().subscribe(usr => { // Using snapshotChanges() method to retrieve list of data along with metadata($key)
+        const dni = usr.payload.toJSON() as number;
+        newUser = {
+          ...newUser,
+          id: dni
+        };
+
+        this.store.dispatch(new SetAuth(newUser));
+      });
     }, () => {
       sessionStorage.removeItem('currentUser');
       this.as.clearStorage();

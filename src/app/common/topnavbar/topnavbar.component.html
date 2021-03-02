@@ -24,6 +24,10 @@
           {{user.email}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <div class="dropdown-item">
+            <small>ID increYble</small>
+            <label>{{user.id}}</label>
+          </div>
           <a class="dropdown-item" (click)="logOut()">Salir</a>
         </div>
       </li>

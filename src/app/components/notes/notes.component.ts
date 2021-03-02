@@ -25,6 +25,7 @@ export class NotesComponent implements OnInit {
     lastLoginAt: '',
     photoURL: '',
     stsTokenManager: {},
+    id: 0,
   });
   data: any[] = [];
   users: any[] = [];
